@@ -1,7 +1,7 @@
 # Mag het Forbes real-time billionaires endpoint op een publieke site?
 
 > **Branch-notitie:** de repo heeft nog geen enkele commit (`fatal: your current branch 'main'
-> does not have any commits yet`), dus er kon geen aparte research-branch worden aangemaakt.
+does not have any commits yet`), dus er kon geen aparte research-branch worden aangemaakt.
 > Dit bestand is geschreven op `main`.
 
 Onderzoek uitgevoerd op **31 augustus 2026**. Betreft ticket
@@ -20,8 +20,8 @@ technisch (het endpoint breekt of blokkeert), niet juridisch. Aanbeveling ondera
 ## 1. Wat zeggen Forbes' huidige Terms of Use letterlijk?
 
 Bron: [Forbes Terms and Conditions](https://www.forbes.com/terms-and-conditions/), opgehaald
-31-08-2026 (HTTP 200). De pagina vermeldt zelf: *"Revised and posted as of the Effective Date:
-March 31, 2024"*. ✅
+31-08-2026 (HTTP 200). De pagina vermeldt zelf: _"Revised and posted as of the Effective Date:
+March 31, 2024"_. ✅
 
 ### 1a. Sectie 2 — "Prohibited Uses of Website and Forbes Channels"
 
@@ -80,7 +80,7 @@ Letterlijk (✅):
 > other notice contained in such Content. No other use is permitted without securing the prior
 > written consent of Forbes.
 
-Let op de drie begrenzingen: *personal*, *a single copy*, *no other use*. Publiceren op een
+Let op de drie begrenzingen: _personal_, _a single copy_, _no other use_. Publiceren op een
 website voor derden valt hier buiten, ook zonder advertenties.
 
 ### 1d. Sectie 1.1 en 1.2 — Content en merken
@@ -112,7 +112,7 @@ Letterlijk (✅):
 > obstruct, modify, or otherwise interfere with the delivery or display of advertisements on the
 > Website.
 
-Deze clausule verbiedt letterlijk het blokkeren van advertenties *op Forbes' site*. Een
+Deze clausule verbiedt letterlijk het blokkeren van advertenties _op Forbes' site_. Een
 server-side JSON-call laadt Forbes' advertenties niet, maar "verwijdert" of "belemmert" ze
 technisch gesproken ook niet. 🟡 Wel is dit de clausule die de economische logica van sectie 2
 blootlegt: Forbes wil dat het lezen van hun cijfers op hún pagina gebeurt.
@@ -125,10 +125,10 @@ Letterlijk (✅):
 > and enforced in accordance with the laws of the State of New York, without giving any regard to
 > its conflict of law principles.
 
-Met exclusieve jurisdictie bij *"the State courts of the State of New York or the United States
-District Court for the Southern District of New York"*, plus een verplichte arbitrageclausule
-en class-action-waiver. De internationale variant voegt toe: *"to the maximum extent permitted
-by the mandatory laws in your country of residence"* — dwingend Nederlands consumentenrecht
+Met exclusieve jurisdictie bij _"the State courts of the State of New York or the United States
+District Court for the Southern District of New York"_, plus een verplichte arbitrageclausule
+en class-action-waiver. De internationale variant voegt toe: _"to the maximum extent permitted
+by the mandatory laws in your country of residence"_ — dwingend Nederlands consumentenrecht
 gaat dus vóór, maar dat helpt niet tegen het scraping-verbod zelf.
 
 ### 1g. Wat er níet in staat
@@ -151,7 +151,7 @@ Opgehaald 31-08-2026 van [forbes.com/robots.txt](https://www.forbes.com/robots.t
 
 🟡 Interpretatie: dit is een actief onderhouden robots.txt met tientallen specifieke regels,
 inclusief het blokkeren van andere JSON-achtige paden. Dat `/forbesapi/` er niet in staat is
-daarom betekenisvol — maar het is *geen* toestemming. robots.txt is geen licentie en overrulet
+daarom betekenisvol — maar het is _geen_ toestemming. robots.txt is geen licentie en overrulet
 de Terms niet.
 
 ---
@@ -160,19 +160,19 @@ de Terms niet.
 
 **Contractueel: nee.** ✅ De tekst van sectie 2 en 7 kent geen drempel, geen frequentie, geen
 attributie-uitzondering en geen non-commercieel-uitzondering. Sectie 1.3 geeft alleen
-toestemming voor *personal, non-commercial* gebruik en *a single copy*; publiceren voor een
+toestemming voor _personal, non-commercial_ gebruik en _a single copy_; publiceren voor een
 publiek valt daar buiten. Eén request per dag met bronvermelding is volgens de letter van de
 voorwaarden precies even verboden als duizend requests per uur.
 
 **Praktisch en juridisch-materieel: ja, aanzienlijk.** Wat het wél verandert:
 
-| Factor | Effect | Status |
-|---|---|---|
-| 1 req/dag | Geen "unreasonable or disproportionately large load" (de aparte bullet in sectie 2 over serverbelasting wordt niet geraakt). Onzichtbaar in Fastly-logs. | ✅ tekst, 🟡 zichtbaarheid |
-| Server-side, geen ad-blocking | Sectie 1.5 wordt niet letterlijk geschonden. | 🟡 |
-| Bronvermelding | Geen misleiding over herkomst; verwijdert het "passing off"-verwijt en beperkt schade. Weegt mee in een eventuele belangenafweging. | 🟡 |
-| Geen advertenties, non-commercieel | Geen concurrentie met Forbes' verdienmodel; maakt schadevergoeding vrijwel onberekenbaar en een rechtszaak economisch zinloos voor Forbes. | 🟡 |
-| Alleen namen + bedragen, geen foto's/tekst | Blijft weg van het auteursrechtelijk sterkste materiaal (foto's, redactionele tekst, look and feel — allemaal expliciet "Content" in sectie 1.1). | ✅ definitie, 🟡 conclusie |
+| Factor                                     | Effect                                                                                                                                                   | Status                     |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| 1 req/dag                                  | Geen "unreasonable or disproportionately large load" (de aparte bullet in sectie 2 over serverbelasting wordt niet geraakt). Onzichtbaar in Fastly-logs. | ✅ tekst, 🟡 zichtbaarheid |
+| Server-side, geen ad-blocking              | Sectie 1.5 wordt niet letterlijk geschonden.                                                                                                             | 🟡                         |
+| Bronvermelding                             | Geen misleiding over herkomst; verwijdert het "passing off"-verwijt en beperkt schade. Weegt mee in een eventuele belangenafweging.                      | 🟡                         |
+| Geen advertenties, non-commercieel         | Geen concurrentie met Forbes' verdienmodel; maakt schadevergoeding vrijwel onberekenbaar en een rechtszaak economisch zinloos voor Forbes.               | 🟡                         |
+| Alleen namen + bedragen, geen foto's/tekst | Blijft weg van het auteursrechtelijk sterkste materiaal (foto's, redactionele tekst, look and feel — allemaal expliciet "Content" in sectie 1.1).        | ✅ definitie, 🟡 conclusie |
 
 **Nederlandse juridische laag — dit is de belangrijkste bevinding naast de ToS zelf.**
 
@@ -198,13 +198,14 @@ En artikel 2 lid 1 (het recht zelf), letterlijk (✅):
 > niet-substantiële delen […]
 
 🟡 **Conclusie (sterk onderbouwde inschatting, geen KvK-/registercheck):** Forbes Media LLC is
-een Amerikaanse vennootschap — de Terms geven als adres *"Forbes Media LLC, 499 Washington Blvd.,
-Jersey City, NJ 07310, USA"* en kiezen New Yorks recht. Forbes valt daarmee niet onder artikel 7
+een Amerikaanse vennootschap — de Terms geven als adres _"Forbes Media LLC, 499 Washington Blvd.,
+Jersey City, NJ 07310, USA"_ en kiezen New Yorks recht. Forbes valt daarmee niet onder artikel 7
 a/b, en heeft dus **geen Nederlands/EU databankenrecht** op de billionaires-lijst. Het sterkste
 wapen dat een Europese lijstenmaker (denk: Quote 500) tegen dit soort hergebruik zou hebben,
 heeft Forbes hier niet.
 
 Wat overblijft in Nederland is dus (🟡):
+
 - **Auteursrecht.** Losse feiten en getallen zijn niet auteursrechtelijk beschermd; een
   originele selectie/rangschikking kan dat wel zijn. Een top-N op netto vermogen is een
   mechanische ordening op één getal — zwakke basis. Foto's en redactionele tekst zijn dat níet:
@@ -225,9 +226,9 @@ Wat overblijft in Nederland is dus (🟡):
 ### Forbes zelf, via PARS International
 
 [PARS International](https://www.parsintl.com/publications/forbes/) is de geautoriseerde agent
-voor Forbes-reprints, -permissies en -licenties. De pagina biedt "Licensing" (*"Get a license to
+voor Forbes-reprints, -permissies en -licenties. De pagina biedt "Licensing" (_"Get a license to
 use award logos, headlines and more on your website, in marketing materials, social media
-campaigns etc."*), "Permissions", reprints en merchandise. ✅
+campaigns etc."_), "Permissions", reprints en merchandise. ✅
 
 **Prijs: niet gepubliceerd.** ⬜ Er staan geen tarieven of bandbreedtes op de pagina; alles loopt
 via een offerteformulier. Contact volgens de gevonden bronnen: `permissions@forbes.com` en
@@ -257,14 +258,14 @@ wealth-intelligence-database met API. **Prijs: niet gepubliceerd** ⬜ — uitsl
 
 ### Vrij te gebruiken alternatieven (wél gelicenseerd, wel gratis)
 
-- **[Wikidata](https://www.wikidata.org/wiki/Wikidata:Licensing)** — letterlijk: *"All structured
+- **[Wikidata](https://www.wikidata.org/wiki/Wikidata:Licensing)** — letterlijk: _"All structured
   data in the main, property and lexeme namespaces is made available under the Creative Commons
-  CC0 License"*, zonder attributieplicht. ✅ Heeft een net-worth-property en een gratis SPARQL-
+  CC0 License"_, zonder attributieplicht. ✅ Heeft een net-worth-property en een gratis SPARQL-
   endpoint. 🟡 Nadelen: dekking is onregelmatig, waarden lopen achter, en veel van die waarden
   zijn zélf van Forbes overgenomen — juridisch schoon, inhoudelijk circulair.
 - **[WID.world](https://wid.world/data/)** (World Inequality Database) — open academische data
   over de verdeling van vermogen. 🟡 Geeft geen individuele miljardairs, maar wel gezaghebbende
-  percentielen; voor een site die *schaal* wil laten voelen kan dat de sterkere bron zijn dan een
+  percentielen; voor een site die _schaal_ wil laten voelen kan dat de sterkere bron zijn dan een
   top-10 met namen.
 - **CBS StatLine / Eurostat** — Nederlandse en Europese open vermogensstatistiek, expliciet
   bedoeld voor hergebruik. 🟡 Zelfde voorbehoud: verdeling, geen personen.
@@ -281,13 +282,13 @@ iedereen dit endpoint gebruikt.
 
 - Publieke, live site die exact dit doet. Zelf geverifieerd op 31-08-2026: **HTTP 200, site
   online.**
-- Bronvermelding op de site zelf: *"Source: Forbes.com"* en *"Images © Forbes.com. All rights
-  reserved."* Geen advertenties aangetroffen.
+- Bronvermelding op de site zelf: _"Source: Forbes.com"_ en _"Images © Forbes.com. All rights
+  reserved."_ Geen advertenties aangetroffen.
 - Broncode: [komed3/rtb](https://github.com/komed3/rtb) en
   [komed3/rtb-api](https://github.com/komed3/rtb-api), MIT-licentie. De API-repo omschrijft
-  zichzelf als *"Free to use API containing profile and list data from Forbes' real-time
-  billionaires since 2020"* en stelt: *"This data can be used unlimited and without any
-  limitation."*
+  zichzelf als _"Free to use API containing profile and list data from Forbes' real-time
+  billionaires since 2020"_ en stelt: _"This data can be used unlimited and without any
+  limitation."_
 - **Draait sinds 2020, publiceert dagelijkse Forbes-data plus historische reeksen (~50.000
   bestanden, ~2 GB), en is in augustus 2026 nog steeds in de lucht.** Dat is ruim vijf jaar
   publieke, EU-gehoste herpublicatie zonder zichtbaar gevolg.
@@ -399,7 +400,7 @@ fallback volledig af te dekken valt.
    responseschema bij elke fetch en schrijf alleen weg als het klopt. Dit dekt scenario 2 én
    scenario 3 in één keer af.
 2. **Houd de tweede optie warm.** Een handmatig bijgehouden top-10 in de repo, in exact hetzelfde
-   dataformaat, één env-flag verwijderd. Voor een site die *schaal* wil laten voelen zijn de
+   dataformaat, één env-flag verwijderd. Voor een site die _schaal_ wil laten voelen zijn de
    bedragen op ordegrootte-niveau relevant; een maandelijkse handmatige update is inhoudelijk
    nauwelijks slechter.
 3. **Sla alleen op wat je toont**: naam, bedrag, rang, datum. Geen foto's, geen biografieën,

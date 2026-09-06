@@ -14,6 +14,7 @@ Pixelwaarde uit, daarna begint de Klim op nul. Bij een puur lineaire schaal zond
 de site alleen als mensen wéten waar ze aan beginnen; dat besef ís wat de Klim betekenis geeft.
 
 Wat vaststaat als grondstof:
+
 - De Top ≈ €749,9 mld = **16.302.174 Nederlandse jaarsalarissen**
 - Pixelwaarde €46.000, modaal 2026, bron CPB
 - De miljonairsgrens ligt op **21,7 pixels**; de miljardgrens op **21.739 pixels**
@@ -22,6 +23,7 @@ Schrijf drie tot vijf **echte varianten**, geen beschrijvingen ervan. Verschil i
 kaal en feitelijk, uitdagend, of juist onderkoeld. Roep `mattpocock-skills:prototype` aan.
 
 Te beslissen:
+
 1. Zeg je expliciet dat het je niet gaat lukken? Dat is eerlijk en het maakt de Klim een
    keuze — maar het kan ook als afhaken-uitnodiging lezen.
 2. Noem je de tijdsduur concreet, of alleen de afstand?

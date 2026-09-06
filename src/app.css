@@ -1,0 +1,277 @@
+/**
+ * BySvelte design-system basis — merk-NEUTRAAL.
+ *
+ * Structurele tokens (spacing/typeschaal/radii/shadows/columns/62.5%-basis) zijn
+ * bit-voor-bit overgenomen uit OutdoorCinema en ZAP Foundation, die ze onafhankelijk
+ * van elkaar bevestigd hebben. Niet aanpassen zonder reden die voor alle projecten geldt.
+ *
+ * De kleurramp hieronder (--primary/--secondary) is een NEUTRALE placeholder —
+ * grijstinten, geen merk. Vervang per project met `generate-ramp.js`, zie
+ * design-system/README.md. Zet géén projectkleur in dit bestand zelf: dat maakt
+ * de starter merkgebonden.
+ */
+
+/**
+ * Zelf-gehost lettertype — voorbeeldpatroon, uitgecommenteerd.
+ * Vervang 'Merkfont' + bestandsnamen door het projectlettertype (woff2, latin-subset)
+ * en preload regular + het zwaarste gebruikte gewicht in <svelte:head>.
+ *
+ * @font-face {
+ * 	font-family: 'Merkfont';
+ * 	font-weight: 400;
+ * 	font-style: normal;
+ *
+ * 	font-display: swap;
+ * 	src: url('/fonts/merkfont-regular.woff2') format('woff2');
+ * }
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scrollbar-gutter: stable;
+	overflow-x: clip;
+	font-size: 62.5%;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/* Vervang door 'Merkfont', … zodra het zelf-gehoste font boven is ingevuld. */
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+	font-weight: var(--fw-default);
+	color: var(--text-body);
+	background-color: var(--bg-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--fw-heading);
+	color: var(--text-title);
+}
+
+h1 {
+	font-size: var(--text-4xl);
+}
+
+h2 {
+	font-size: var(--text-3xl);
+}
+
+h3 {
+	font-size: var(--text-2xl);
+}
+
+h4 {
+	font-size: var(--text-xl);
+}
+
+h5 {
+	font-size: var(--text-l);
+}
+
+h6 {
+	font-size: var(--text-m);
+}
+
+p {
+	font-size: var(--text-m);
+	color: var(--text-body);
+}
+
+a {
+	color: var(--primary);
+}
+
+.boxed {
+	width: 100%;
+	max-width: var(--max-screen-width);
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: var(--space-m);
+	padding-left: var(--space-m);
+
+	text-align: left;
+}
+
+:root {
+	--min-screen-width: 320px;
+	--max-screen-width: 1405px;
+
+	/* ── Kleurramp — NEUTRALE placeholder, per project vervangen ─────────────
+		Gegenereerd met generate-ramp.js primary '#404040' / secondary '#737373'.
+		Formule: alpha-suffixen -5…-90 zijn percentage→hex-alpha, -d-1..4/-l-1..4
+		zijn lineaire mixes met zwart/wit in stappen van 20%. */
+	--primary: #404040;
+	--primary-5: #4040400d;
+	--primary-10: #4040401a;
+	--primary-20: #40404033;
+	--primary-30: #4040404d;
+	--primary-40: #40404066;
+	--primary-50: #40404080;
+	--primary-60: #40404099;
+	--primary-70: #404040b3;
+	--primary-80: #404040cc;
+	--primary-90: #404040e6;
+	--primary-d-1: #333333;
+	--primary-d-2: #262626;
+	--primary-d-3: #1a1a1a;
+	--primary-d-4: #0d0d0d;
+	--primary-l-1: #666666;
+	--primary-l-2: #8c8c8c;
+	--primary-l-3: #b3b3b3;
+	--primary-l-4: #d9d9d9;
+	--secondary: #737373;
+	--secondary-5: #7373730d;
+	--secondary-10: #7373731a;
+	--secondary-20: #73737333;
+	--secondary-30: #7373734d;
+	--secondary-40: #73737366;
+	--secondary-50: #73737380;
+	--secondary-60: #73737399;
+	--secondary-70: #737373b3;
+	--secondary-80: #737373cc;
+	--secondary-90: #737373e6;
+	--secondary-d-1: #5c5c5c;
+	--secondary-d-2: #454545;
+	--secondary-d-3: #2e2e2e;
+	--secondary-d-4: #171717;
+	--secondary-l-1: #8f8f8f;
+	--secondary-l-2: #ababab;
+	--secondary-l-3: #c7c7c7;
+	--secondary-l-4: #e3e3e3;
+	/* ── Einde kleurramp ──────────────────────────────────────────────────── */
+
+	--bg-body: hsla(0, 0%, 100%, 1);
+	--bg-surface: hsla(0, 0%, 97%, 1);
+	--text-body: hsla(0, 0%, 20%, 1);
+	--text-title: hsla(0, 0%, 10%, 1);
+	--text-inverted: hsla(0, 0%, 100%, 1);
+	--title-inverted: hsla(0, 0%, 100%, 1);
+	--border-primary: hsla(0, 0%, 50%, 0.2);
+	--shadow-primary: hsla(0, 0%, 0%, 0.12);
+	--light: hsla(0, 0%, 100%, 1);
+	--light-5: hsla(0, 0%, 100%, 0.05);
+	--light-10: hsla(0, 0%, 100%, 0.1);
+	--light-20: hsla(0, 0%, 100%, 0.2);
+	--light-30: hsla(0, 0%, 100%, 0.3);
+	--light-40: hsla(0, 0%, 100%, 0.4);
+	--light-50: hsla(0, 0%, 100%, 0.5);
+	--light-60: hsla(0, 0%, 100%, 0.6);
+	--light-70: hsla(0, 0%, 100%, 0.7);
+	--light-80: hsla(0, 0%, 100%, 0.8);
+	--light-90: hsla(0, 0%, 100%, 0.9);
+	--dark: hsla(0, 0%, 0%, 1);
+	--dark-5: hsla(0, 0%, 0%, 0.05);
+	--dark-10: hsla(0, 0%, 0%, 0.1);
+	--dark-20: hsla(0, 0%, 0%, 0.2);
+	--dark-30: hsla(0, 0%, 0%, 0.3);
+	--dark-40: hsla(0, 0%, 0%, 0.4);
+	--dark-50: hsla(0, 0%, 0%, 0.5);
+	--dark-60: hsla(0, 0%, 0%, 0.6);
+	--dark-70: hsla(0, 0%, 0%, 0.7);
+	--dark-80: hsla(0, 0%, 0%, 0.8);
+	--dark-90: hsla(0, 0%, 0%, 0.9);
+	--success: hsla(136, 60%, 34%, 1);
+	--success-5: hsla(136, 60%, 34%, 0.05);
+	--success-10: hsla(136, 60%, 34%, 0.1);
+	--success-20: hsla(136, 60%, 34%, 0.2);
+	--success-30: hsla(136, 60%, 34%, 0.3);
+	--success-40: hsla(136, 60%, 34%, 0.4);
+	--success-50: hsla(136, 60%, 34%, 0.5);
+	--success-60: hsla(136, 60%, 34%, 0.6);
+	--success-70: hsla(136, 60%, 34%, 0.7);
+	--success-80: hsla(136, 60%, 34%, 0.8);
+	--success-90: hsla(136, 60%, 34%, 0.9);
+	--error: hsla(351, 75%, 45%, 1);
+	--error-5: hsla(351, 75%, 45%, 0.05);
+	--error-10: hsla(351, 75%, 45%, 0.1);
+	--error-20: hsla(351, 75%, 45%, 0.2);
+	--error-30: hsla(351, 75%, 45%, 0.3);
+	--error-40: hsla(351, 75%, 45%, 0.4);
+	--error-50: hsla(351, 75%, 45%, 0.5);
+	--error-60: hsla(351, 75%, 45%, 0.6);
+	--error-70: hsla(351, 75%, 45%, 0.7);
+	--error-80: hsla(351, 75%, 45%, 0.8);
+	--error-90: hsla(351, 75%, 45%, 0.9);
+	--space-5xs: clamp(0.42rem, calc(-0.06vw + 0.44rem), 0.35rem);
+	--space-4xs: clamp(0.52rem, calc(-0.03vw + 0.53rem), 0.49rem);
+	--space-3xs: clamp(0.66rem, calc(0.04vw + 0.64rem), 0.7rem);
+	--space-2xs: clamp(0.82rem, calc(0.16vw + 0.77rem), 0.99rem);
+	--space-xs: clamp(1.02rem, calc(0.35vw + 0.91rem), 1.4rem);
+	--space-s: clamp(1.28rem, calc(0.65vw + 1.07rem), 1.98rem);
+	--space-m: clamp(1.6rem, calc(1.11vw + 1.24rem), 2.8rem);
+	--space-l: clamp(2rem, calc(1.81vw + 1.42rem), 3.96rem);
+	--space-xl: clamp(2.5rem, calc(2.87vw + 1.58rem), 5.6rem);
+	--space-2xl: clamp(3.13rem, calc(4.44vw + 1.71rem), 7.92rem);
+	--space-3xl: clamp(3.91rem, calc(6.75vw + 1.75rem), 11.19rem);
+	--space-4xl: clamp(4.88rem, calc(10.13vw + 1.64rem), 15.83rem);
+	--space-5xl: clamp(6.1rem, calc(15.07vw + 1.28rem), 22.38rem);
+	--text-2xs: clamp(1.12rem, calc(-0.34vw + 1.23rem), 0.76rem);
+	--text-xs: clamp(1.26rem, calc(-0.23vw + 1.34rem), 1.01rem);
+	--text-s: clamp(1.42rem, calc(-0.07vw + 1.44rem), 1.35rem);
+	--text-m: clamp(1.6rem, calc(0.19vw + 1.54rem), 1.8rem);
+	--text-l: clamp(1.8rem, calc(0.55vw + 1.62rem), 2.4rem);
+	--text-xl: clamp(2.02rem, calc(1.09vw + 1.68rem), 3.2rem);
+	--text-2xl: clamp(2.28rem, calc(1.84vw + 1.69rem), 4.26rem);
+	--text-3xl: clamp(2.56rem, calc(2.89vw + 1.64rem), 5.68rem);
+	--text-4xl: clamp(2.88rem, calc(4.34vw + 1.49rem), 7.58rem);
+	--columns-1: repeat(1, minmax(0, 1fr));
+	--columns-2: repeat(2, minmax(0, 1fr));
+	--columns-3: repeat(3, minmax(0, 1fr));
+	--columns-4: repeat(4, minmax(0, 1fr));
+	--columns-5: repeat(5, minmax(0, 1fr));
+	--columns-6: repeat(6, minmax(0, 1fr));
+	--columns-7: repeat(7, minmax(0, 1fr));
+	--columns-8: repeat(8, minmax(0, 1fr));
+	--radius-xs: clamp(0.4rem, calc(0vw + 0.4rem), 0.4rem);
+	--radius-s: clamp(0.6rem, calc(-0.19vw + 0.86rem), 0.8rem);
+	--radius-m: clamp(1rem, calc(-0.19vw + 1.26rem), 1.2rem);
+	--radius-l: clamp(1.6rem, calc(-0.37vw + 2.12rem), 2rem);
+	--radius-xl: clamp(2.6rem, calc(-0.56vw + 3.38rem), 3.2rem);
+	--radius-full: 999rem;
+	--shadow-xs: 0 1px 2px var(--shadow-primary);
+	--shadow-s: 0 1.5px 3px var(--shadow-primary);
+	--shadow-m: 0 2px 6px var(--shadow-primary);
+	--shadow-l: 0 3px 12px var(--shadow-primary);
+	--shadow-xl: 0 6px 48px var(--shadow-primary);
+	--fw-default: 400;
+	--fw-bold: 600;
+	--fw-heading: 800;
+}
+
+.sr-only {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+
+	white-space: nowrap;
+
+	clip: rect(0, 0, 0, 0);
+}

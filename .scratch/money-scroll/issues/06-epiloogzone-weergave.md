@@ -11,11 +11,11 @@ meer en komt er iets anders in beeld. Wát dat is, is nooit bepaald.
 
 Wat er in die zone ligt (bij Pixelwaarde €46.000):
 
-| Hoogte | |
-|---|---|
-| 16,30 mln px | De Top — de rijkste mens ter wereld |
+| Hoogte       |                                            |
+| ------------ | ------------------------------------------ |
+| 16,30 mln px | De Top — de rijkste mens ter wereld        |
 | 21,70 mln px | één biljoen — waar Musk in juni 2026 stond |
-| 25,00 mln px | het BBP van Nederland |
+| 25,00 mln px | het BBP van Nederland                      |
 
 Te beantwoorden:
 

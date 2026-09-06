@@ -1,0 +1,11 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "money-scroll",
+	// TODO(Cloudflare-project, KV en de eerste deploy): pin het echte account_id vóór deploy.
+	// Zonder pin deployt een verkeerd token stilletjes naar het verkeerde account.
+	"account_id": "<cloudflare-account-id>",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2026-08-31",
+	"assets": { "binding": "ASSETS", "directory": ".svelte-kit/cloudflare" },
+	"observability": { "enabled": true }
+}

@@ -1,7 +1,7 @@
 # Project scaffolden
 
 Type: task
-Status: open
+Status: claimed
 
 ## Question
 

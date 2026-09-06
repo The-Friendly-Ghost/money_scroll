@@ -13,16 +13,16 @@ gebouwd wordt.
 Drie bestanden, YAML. Volgorde in het bestand doet er niet toe — plaatsing gaat op bedrag,
 dus aanplakken kan overal.
 
-| Bestand | Inhoud |
-|---|---|
+| Bestand                  | Inhoud                                              |
+| ------------------------ | --------------------------------------------------- |
 | `data/hoofdstukken.yaml` | de 12 Hoofdstukken, met `tekst` en `bron` verplicht |
-| `data/markers.yaml` | de handmatige Markers |
-| `data/markers.auto.yaml` | gegenereerd, daarna handmatig te bewerken |
+| `data/markers.yaml`      | de handmatige Markers                               |
+| `data/markers.auto.yaml` | gegenereerd, daarna handmatig te bewerken           |
 
 ```yaml
 - id: miljardgrens
   bedrag: 1
-  eenheid: mld            # eur | mln | mld | bln
+  eenheid: mld # eur | mln | mld | bln
   label: De miljardgrens
   tekst: |
     Duizend keer de miljonair.
@@ -40,6 +40,7 @@ is op de site onzichtbaar — de Marker staat dan gewoon ergens anders.
 `src/lib/data/laden.js` leest en valideert bij de build (js-yaml, build-time only).
 
 `npm run check:markers`, ook in CI:
+
 - schema, geldige eenheid, id-formaat
 - dubbele id's over alle drie de bestanden
 - ontbrekende `bron`
