@@ -10,6 +10,7 @@ Bouw de zuivere wiskunde van de Klim, volledig testbaar zonder DOM. Dit is het f
 waar al het andere op rust, dus het gaat vóór alles wat je kunt zien.
 
 `src/lib/climb/scale.js`:
+
 - Pixelwaarde ↔ euro's, beide richtingen
 - `bedrag` + `eenheid` (`eur` | `mln` | `mld` | `bln`) → euro's. Een **onbekende eenheid moet
   hard falen**, niet stil 0 opleveren
@@ -18,6 +19,7 @@ waar al het andere op rust, dus het gaat vóór alles wat je kunt zien.
 - Formattering van het percentage, met genoeg decimalen om onder 0,01% nog iets te betekenen
 
 `src/lib/climb/markers.js`:
+
 - Hoofdstukken en Markers samenvoegen en sorteren op bedrag
 - Binair zoeken naar het zichtbare venster rond een Hoogte
 - Leegte-controle: vind elk gat > 5 minuten op referentiesnelheid (1.000px/s)

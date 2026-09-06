@@ -1,0 +1,14 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+
+# Miscellaneous
+/static/
+
+# Als dit project Sveltia CMS-content in /content/ heeft: voeg die hier toe.
+# Prettier herformatteert markdown en kan turndown's trailing-dubbele-spatie
+# (hard line break) subtiel wijzigen. Zie ZAP-Foundation/docs/phases/04-migratie.md.
+# /content/

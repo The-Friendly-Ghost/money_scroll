@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# Pre-push hook: blokkeert direct pushen (incl. force) naar main/master.
+# Werk via een feature-branch + PR die je op GitHub mergt.
+#
+# LET OP: dit is een LOKALE vangrail, geen harde garantie.
+# - Te omzeilen met `git push --no-verify`
+# - Bestaat alleen in deze clone (geïnstalleerd via `npm install`)
+# De echte grendel is een GitHub branch-protection ruleset op main.
+#
+# Uitzondering: Sveltia CMS commit via de GitHub API rechtstreeks naar main.
+# Die gaat niet door deze hook heen — dat is bedoeld en nodig, want de klant
+# heeft geen lokale clone.
+#
+# Git geeft op stdin per te pushen ref een regel:
+#   <local_ref> <local_sha> <remote_ref> <remote_sha>
+#
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+PROTECTED='refs/heads/main refs/heads/master'
+
+blocked=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ -z "$remote_ref" ] && continue
+
+    for protected_ref in $PROTECTED; do
+        if [ "$remote_ref" = "$protected_ref" ]; then
+            branch=${remote_ref#refs/heads/}
+            printf "${RED}✗ Push naar '%s' geblokkeerd.${NC}\n" "$branch" >&2
+            blocked=1
+        fi
+    done
+done
+
+if [ "$blocked" -eq 1 ]; then
+    printf "\n" >&2
+    printf "${YELLOW}Direct pushen naar main/master mag niet — ook niet met --force.${NC}\n" >&2
+    printf "Werk zo:\n" >&2
+    printf "  1. git switch -c mijn-feature\n" >&2
+    printf "  2. git push -u origin mijn-feature\n" >&2
+    printf "  3. Maak een PR op GitHub en merge die naar main.\n" >&2
+    exit 1
+fi
+
+exit 0

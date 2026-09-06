@@ -15,6 +15,7 @@ Bron, getest en werkend zonder sleutel:
 → 200, 261 rijen, data t/m 2025.
 
 Het script:
+
 1. Haalt op
 2. **Filtert aggregaten weg op een echte ISO-3166 alpha-3-lijst.** Rijen als
    `ZH / Africa Eastern and Southern` zijn geen landen. Doe dit niet op een heuristiek —

@@ -46,6 +46,7 @@ de Worker doet:
 Geen uitzondering voor volume, non-commercieel gebruik of bronvermelding.
 
 **Maar de blootstelling in Nederland is klein:**
+
 - Databankenwet art. 7: het databankenrecht komt alleen toe aan EU/EEA-producenten. Forbes
   Media LLC is Amerikaans → geen Nederlands databankenrecht.
 - Geen technische maatregel omzeild; geen auth, `cache-control: public, max-age=300` — Forbes
